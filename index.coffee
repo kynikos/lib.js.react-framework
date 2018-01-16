@@ -22,8 +22,8 @@ helpers = require('../react-helpers/index')
 {createFactory, r} = helpers
 {Router, Route, withRouter} = require('react-router')
 {createStore, combineReducers, applyMiddleware} = require('redux')
-# Require redux-actions-mod directly in the app code, since this module hasn't been
-# initialized yet when actions must be created
+# Require redux-actions-mod directly in the app code, since this module hasn't
+# been initialized yet when actions must be created
 # require('../redux-actions-mod/index')
 {Provider, connect} = require('react-redux')
 {routerReducer, routerMiddleware, push} = require('react-router-redux')
