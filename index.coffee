@@ -20,7 +20,7 @@ require('react')
 ReactDOM = require('react-dom')
 helpers = require('../react-helpers/index')
 {createFactory, r} = helpers
-{Router, Route} = require('react-router')
+{Router, Route, withRouter} = require('react-router')
 {createStore, combineReducers, applyMiddleware} = require('redux')
 # Require redux-actions-mod directly in the app code, since this module hasn't been
 # initialized yet when actions must be created
@@ -70,6 +70,7 @@ module.exports = (config) ->
         ReactDOM
         App
         Route: createFactory(Route)
+        withRouter
         connect
         actions: actionCreators
         helpers
