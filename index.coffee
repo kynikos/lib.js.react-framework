@@ -27,6 +27,7 @@ helpers = require('../react-helpers/index')
 # require('../redux-actions-mod/index')
 {Provider, connect} = require('react-redux')
 {routerReducer, routerMiddleware, push} = require('react-router-redux')
+thunk = require('redux-thunk').default
 {composeWithDevTools} = require('redux-devtools-extension')
 {createBrowserHistory} = require('history')
 
@@ -50,6 +51,7 @@ module.exports = (config) ->
         })
         composeWithDevTools(
             applyMiddleware(
+                thunk
                 routerMiddleware(history)
             )
         )
