@@ -33,17 +33,17 @@ helpers = require('../react-helpers/index')
 
 module.exports = (config) ->
     actionCreators = {}
-    reducers = {}
+    reducersMap = {}
 
     for stateKey, {actions, reducers} of config
-        reducers[stateKey] = combineReducers(reducers)
+        reducersMap[stateKey] = combineReducers(reducers)
         Object.assign(actionCreators, actions)
 
     history = createBrowserHistory()
     middleware = routerMiddleware(history)
     store = createStore(
         combineReducers({
-            reducers...  # noqa
+            reducersMap...  # noqa
             router: routerReducer
         })
         composeWithDevTools(
