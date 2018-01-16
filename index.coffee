@@ -37,7 +37,10 @@ module.exports = (config) ->
 
     for stateKey, {actions, reducers} of config
         reducersMap[stateKey] = combineReducers(reducers)
-        Object.assign(actionCreators, actions)
+        for type, actionCreator of actions
+            if actionCreators[type]?
+                throw new Error("Duplicated action creator: #{type}")
+            actionCreators[type] = actionCreator
 
     history = createBrowserHistory()
     store = createStore(
