@@ -40,14 +40,15 @@ module.exports = (config) ->
         Object.assign(actionCreators, actions)
 
     history = createBrowserHistory()
-    middleware = routerMiddleware(history)
     store = createStore(
         combineReducers({
             reducersMap...  # noqa
             router: routerReducer
         })
         composeWithDevTools(
-            applyMiddleware(middleware)
+            applyMiddleware(
+                routerMiddleware(history)
+            )
         )
     )
 
