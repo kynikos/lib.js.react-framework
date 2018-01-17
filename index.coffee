@@ -28,6 +28,12 @@ thunk = require('redux-thunk').default
 {composeWithDevTools} = require('redux-devtools-extension')
 {createBrowserHistory} = require('history')
 
+# Other useful modules:
+# redux-actions
+# reselect
+# jss
+# react-bootstrap
+
 
 module.exports = (reducerMap) ->
     history = createBrowserHistory()
