@@ -22,9 +22,6 @@ helpers = require('../react-helpers/index')
 {createFactory, r} = helpers
 {Router, Route, withRouter} = require('react-router')
 {createStore, combineReducers, applyMiddleware} = require('redux')
-# Require redux-actions-mod directly in the app code, since this module hasn't
-# been initialized yet when actions must be created
-# require('../redux-actions-mod/index')
 {Provider, connect} = require('react-redux')
 {routerReducer, routerMiddleware, push} = require('react-router-redux')
 thunk = require('redux-thunk').default
@@ -32,21 +29,11 @@ thunk = require('redux-thunk').default
 {createBrowserHistory} = require('history')
 
 
-module.exports = (config) ->
-    actionCreators = {}
-    reducersMap = {}
-
-    for stateKey, {actions, reducers} of config
-        reducersMap[stateKey] = combineReducers(reducers)
-        for type, actionCreator of actions
-            if actionCreators[type]?
-                throw new Error("Duplicated action creator: #{type}")
-            actionCreators[type] = actionCreator
-
+module.exports = (reducerMap) ->
     history = createBrowserHistory()
     store = createStore(
         combineReducers({
-            reducersMap...  # noqa
+            reducerMap...  # noqa
             router: routerReducer
         })
         composeWithDevTools(
@@ -74,7 +61,6 @@ module.exports = (config) ->
         Route: createFactory(Route)
         withRouter
         connect
-        actions: actionCreators
         helpers
         history
         push
