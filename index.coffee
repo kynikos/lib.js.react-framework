@@ -20,7 +20,7 @@ require('react')
 ReactDOM = require('react-dom')
 helpers = require('../react-helpers/index')
 {createFactory, r} = helpers
-{Router, Route, withRouter} = require('react-router')
+{Router, Route, withRouter, Link} = require('react-router-dom')
 {createStore, combineReducers, applyMiddleware} = require('redux')
 {Provider, connect} = require('react-redux')
 {routerReducer, routerMiddleware, push} = require('react-router-redux')
@@ -62,6 +62,7 @@ module.exports = (reducerMap) ->
         withRouter
         connect
         helpers
+        Link: createFactory(Link)
         history
         push
     }
