@@ -5,7 +5,7 @@
 
 require('react')
 ReactDOM = require('react-dom')
-helpers = require('../react-helpers/index')
+helpers = require('@kynikos/react-helpers')
 {createFactory, r} = helpers
 {Router, Route, withRouter, Link} = require('react-router-dom')
 {createStore, combineReducers, applyMiddleware} = require('redux')
