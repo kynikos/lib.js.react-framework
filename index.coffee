@@ -23,18 +23,22 @@ thunk = require('redux-thunk').default
 
 
 module.exports = (reducerMap) ->
+    rootReducerMap = {
+        reducerMap...
+        router: routerReducer
+    }
+
+    storeEnhancers = []
+    storeEnhancers.push(applyMiddleware(
+        thunk
+        routerMiddleware(history)
+    ))
+
     history = createBrowserHistory()
+
     store = createStore(
-        combineReducers({
-            reducerMap...  # noqa
-            router: routerReducer
-        })
-        composeWithDevTools(
-            applyMiddleware(
-                thunk
-                routerMiddleware(history)
-            )
-        )
+        combineReducers(rootReducerMap)
+        composeWithDevTools(storeEnhancers...)
     )
 
     App = (root) ->
