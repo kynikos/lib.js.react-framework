@@ -36,5 +36,8 @@
     "presets": [
       "env"
     ]
+  },
+  "optionalDependencies": {
+    "redux-responsive": "^4.3.5"
   }
 }

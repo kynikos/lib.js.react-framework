@@ -14,6 +14,12 @@ helpers = require('@kynikos/react-helpers')
 thunk = require('redux-thunk').default
 {composeWithDevTools} = require('redux-devtools-extension')
 {createBrowserHistory} = require('history')
+try
+    {responsiveStateReducer, responsiveStoreEnhancer} =
+        require('redux-responsive')
+catch
+    responsiveStateReducer = null
+    responsiveStoreEnhancer = null
 
 # Other useful modules:
 # redux-actions
@@ -27,8 +33,11 @@ module.exports = (reducerMap) ->
         reducerMap...
         router: routerReducer
     }
+    if responsiveStateReducer
+        rootReducerMap.browser = responsiveStateReducer
 
     storeEnhancers = []
+    storeEnhancers.push(responsiveStoreEnhancer) if responsiveStoreEnhancer
     storeEnhancers.push(applyMiddleware(
         thunk
         routerMiddleware(history)
