@@ -29,6 +29,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "coffeelint": "^2.1.0",
     "coffeescript": "^2.1.1"
   },
   "babel": {
