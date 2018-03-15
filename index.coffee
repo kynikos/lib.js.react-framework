@@ -7,13 +7,14 @@ require('react')
 ReactDOM = require('react-dom')
 helpers = require('@kynikos/react-helpers')
 {createFactory, r} = helpers
-{Router, Route, withRouter, Link} = require('react-router-dom')
+createHistory = require('history/createBrowserHistory').default
+{Route, withRouter, Link} = require('react-router-dom')
 {createStore, combineReducers, applyMiddleware} = require('redux')
 {Provider, connect} = require('react-redux')
-{routerReducer, routerMiddleware, push} = require('react-router-redux')
+{ConnectedRouter, routerReducer, routerMiddleware, routerActions, push} =
+    require('react-router-redux')
 thunk = require('redux-thunk').default
 {composeWithDevTools} = require('redux-devtools-extension')
-{createBrowserHistory} = require('history')
 try
     {responsiveStateReducer, responsiveStoreEnhancer} =
         require('redux-responsive')
@@ -29,8 +30,11 @@ catch
 
 
 module.exports = (reducerMap) ->
+    history = createHistory()
+
     rootReducerMap = {
         reducerMap...
+        # This is expressly required to be called 'router'
         router: routerReducer
     }
     if responsiveStateReducer
@@ -43,19 +47,15 @@ module.exports = (reducerMap) ->
         routerMiddleware(history)
     ))
 
-    history = createBrowserHistory()
-
     store = createStore(
         combineReducers(rootReducerMap)
         composeWithDevTools(storeEnhancers...)
     )
 
     App = (root) ->
-        r(
-            Provider
+        r(Provider
             {store}
-            r(
-                Router
+            r(ConnectedRouter
                 {history}
                 root
             )
@@ -70,5 +70,6 @@ module.exports = (reducerMap) ->
         helpers
         Link: createFactory(Link)
         history
+        routerActions
         push
     }

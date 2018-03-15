@@ -19,9 +19,9 @@
     "history": "^4.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "react-router-redux": "^4.0.8",
+    "react-router-redux": "^5.0.0-alpha.9",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0"
@@ -30,7 +30,7 @@
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "coffeelint": "^2.1.0",
-    "coffeescript": "^2.1.1"
+    "coffeescript": "^2.2.3"
   },
   "babel": {
     "presets": [
