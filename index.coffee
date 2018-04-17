@@ -8,7 +8,7 @@ ReactDOM = require('react-dom')
 helpers = require('@kynikos/react-helpers')
 {createFactory, r} = helpers
 createHistory = require('history/createBrowserHistory').default
-{Route, withRouter, Link} = require('react-router-dom')
+{Switch, Route, Redirect, withRouter, Link} = require('react-router-dom')
 {createStore, combineReducers, applyMiddleware} = require('redux')
 {Provider, connect} = require('react-redux')
 {ConnectedRouter, routerReducer, routerMiddleware, routerActions, push} =
@@ -64,7 +64,9 @@ module.exports = (reducerMap) ->
     return {
         ReactDOM
         App
+        Switch: createFactory(Switch)
         Route: createFactory(Route)
+        Redirect: createFactory(Redirect)
         withRouter
         connect
         helpers

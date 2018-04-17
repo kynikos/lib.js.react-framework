@@ -12,7 +12,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       Link,
       Provider,
       ReactDOM,
+      Redirect,
       Route,
+      Switch,
       applyMiddleware,
       combineReducers,
       composeWithDevTools,
@@ -55,7 +57,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   var _require = require('react-router-dom');
 
+  Switch = _require.Switch;
   Route = _require.Route;
+  Redirect = _require.Redirect;
   withRouter = _require.withRouter;
   Link = _require.Link;
 
@@ -123,7 +127,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     return {
       ReactDOM: ReactDOM,
       App: App,
+      Switch: createFactory(Switch),
       Route: createFactory(Route),
+      Redirect: createFactory(Redirect),
       withRouter: withRouter,
       connect: connect,
       helpers: helpers,
