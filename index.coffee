@@ -16,8 +16,8 @@ createHistory = require('history/createBrowserHistory').default
 thunk = require('redux-thunk').default
 {composeWithDevTools} = require('redux-devtools-extension')
 try
-    {responsiveStateReducer, responsiveStoreEnhancer} =
-        require('redux-responsive')
+    {responsiveStateReducer, createResponsiveStateReducer,
+        responsiveStoreEnhancer} = require('redux-responsive')
 catch
     responsiveStateReducer = null
     responsiveStoreEnhancer = null
@@ -29,7 +29,7 @@ catch
 # react-bootstrap
 
 
-module.exports = (reducerMap) ->
+module.exports = (reducerMap, {responsiveBreakpoints}) ->
     history = createHistory()
 
     rootReducerMap = {
@@ -38,7 +38,9 @@ module.exports = (reducerMap) ->
         router: routerReducer
     }
     if responsiveStateReducer
-        rootReducerMap.browser = responsiveStateReducer
+        rootReducerMap.browser = responsiveBreakpoints and
+            createResponsiveStateReducer(responsiveBreakpoints) or
+            responsiveStateReducer
 
     storeEnhancers = []
     storeEnhancers.push(responsiveStoreEnhancer) if responsiveStoreEnhancer

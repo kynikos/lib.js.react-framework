@@ -21,6 +21,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       connect,
       createFactory,
       createHistory,
+      createResponsiveStateReducer,
       createStore,
       helpers,
       push,
@@ -94,6 +95,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     var _require6 = require('redux-responsive');
 
     responsiveStateReducer = _require6.responsiveStateReducer;
+    createResponsiveStateReducer = _require6.createResponsiveStateReducer;
     responsiveStoreEnhancer = _require6.responsiveStoreEnhancer;
   } catch (error) {
     responsiveStateReducer = null;
@@ -105,7 +107,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   // reselect
   // jss
   // react-bootstrap
-  module.exports = function (reducerMap) {
+  module.exports = function (reducerMap, _ref) {
+    var responsiveBreakpoints = _ref.responsiveBreakpoints;
+
     var App, history, rootReducerMap, store, storeEnhancers;
     history = createHistory();
     rootReducerMap = _extends({}, reducerMap, {
@@ -113,7 +117,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       router: routerReducer
     });
     if (responsiveStateReducer) {
-      rootReducerMap.browser = responsiveStateReducer;
+      rootReducerMap.browser = responsiveBreakpoints && createResponsiveStateReducer(responsiveBreakpoints) || responsiveStateReducer;
     }
     storeEnhancers = [];
     if (responsiveStoreEnhancer) {
