@@ -8,7 +8,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   // Copyright (C) 2018-present Dario Giovannetti <dev@dariogiovannetti.net>
   // Licensed under MIT
   // https://github.com/kynikos/react-framework/blob/master/LICENSE
-  var ConnectedRouter,
+  var CALL_HISTORY_METHOD,
+      ConnectedRouter,
+      LOCATION_CHANGE,
       Link,
       Provider,
       ReactDOM,
@@ -23,9 +25,13 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       createHistory,
       createResponsiveStateReducer,
       createStore,
+      go,
+      goBack,
+      goForward,
       helpers,
       push,
       r,
+      replace,
       responsiveStateReducer,
       responsiveStoreEnhancer,
       routerActions,
@@ -82,6 +88,12 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   routerMiddleware = _require4.routerMiddleware;
   routerActions = _require4.routerActions;
   push = _require4.push;
+  replace = _require4.replace;
+  go = _require4.go;
+  goBack = _require4.goBack;
+  goForward = _require4.goForward;
+  LOCATION_CHANGE = _require4.LOCATION_CHANGE;
+  CALL_HISTORY_METHOD = _require4.CALL_HISTORY_METHOD;
 
 
   thunk = require('redux-thunk').default;
@@ -106,7 +118,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   // redux-actions
   // reselect
   // jss
-  // react-bootstrap
+  // styled-jss
   module.exports = function (reducerMap, _ref) {
     var responsiveBreakpoints = _ref.responsiveBreakpoints;
 
@@ -140,7 +152,13 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       Link: createFactory(Link),
       history: history,
       routerActions: routerActions,
-      push: push
+      push: push,
+      replace: replace,
+      go: go,
+      goBack: goBack,
+      goForward: goForward,
+      LOCATION_CHANGE: LOCATION_CHANGE,
+      CALL_HISTORY_METHOD: CALL_HISTORY_METHOD
     };
   };
 }).call(undefined);

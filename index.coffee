@@ -11,7 +11,8 @@ createHistory = require('history/createBrowserHistory').default
 {Switch, Route, Redirect, withRouter, Link} = require('react-router-dom')
 {createStore, combineReducers, applyMiddleware} = require('redux')
 {Provider, connect} = require('react-redux')
-{ConnectedRouter, routerReducer, routerMiddleware, routerActions, push} =
+{ConnectedRouter, routerReducer, routerMiddleware, routerActions, push, replace,
+ go, goBack, goForward, LOCATION_CHANGE, CALL_HISTORY_METHOD} =
     require('react-router-redux')
 thunk = require('redux-thunk').default
 {composeWithDevTools} = require('redux-devtools-extension')
@@ -26,7 +27,7 @@ catch
 # redux-actions
 # reselect
 # jss
-# react-bootstrap
+# styled-jss
 
 
 module.exports = (reducerMap, {responsiveBreakpoints}) ->
@@ -76,4 +77,10 @@ module.exports = (reducerMap, {responsiveBreakpoints}) ->
         history
         routerActions
         push
+        replace
+        go
+        goBack
+        goForward
+        LOCATION_CHANGE
+        CALL_HISTORY_METHOD
     }
