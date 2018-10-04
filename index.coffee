@@ -11,9 +11,8 @@ createHistory = require('history/createBrowserHistory').default
 {Switch, Route, Redirect, withRouter, Link} = require('react-router-dom')
 {createStore, combineReducers, applyMiddleware} = require('redux')
 {Provider, connect} = require('react-redux')
-{ConnectedRouter, routerReducer, routerMiddleware, routerActions, push, replace,
- go, goBack, goForward, LOCATION_CHANGE, CALL_HISTORY_METHOD} =
-    require('react-router-redux')
+{ConnectedRouter, connectRouter, routerMiddleware, push, replace, go, goBack,
+    goForward} = require('connected-react-router')
 thunk = require('redux-thunk').default
 {composeWithDevTools} = require('redux-devtools-extension')
 try
@@ -30,14 +29,9 @@ catch
 # styled-jss
 
 
-module.exports = (reducerMap, {responsiveBreakpoints}) ->
+module.exports = (rootReducerMap, {responsiveBreakpoints}) ->
     history = createHistory()
 
-    rootReducerMap = {
-        reducerMap...
-        # This is expressly required to be called 'router'
-        router: routerReducer
-    }
     if responsiveStateReducer
         rootReducerMap.browser = responsiveBreakpoints and
             createResponsiveStateReducer(responsiveBreakpoints) or
@@ -51,7 +45,7 @@ module.exports = (reducerMap, {responsiveBreakpoints}) ->
     ))
 
     store = createStore(
-        combineReducers(rootReducerMap)
+        connectRouter(history)(combineReducers(rootReducerMap))
         composeWithDevTools(storeEnhancers...)
     )
 
@@ -75,12 +69,9 @@ module.exports = (reducerMap, {responsiveBreakpoints}) ->
         helpers
         Link: createFactory(Link)
         history
-        routerActions
         push
         replace
         go
         goBack
         goForward
-        LOCATION_CHANGE
-        CALL_HISTORY_METHOD
     }

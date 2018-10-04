@@ -15,22 +15,22 @@
     "compile": "./node_modules/.bin/coffee --compile --transpile index.coffee"
   },
   "dependencies": {
-    "@kynikos/react-helpers": "^1.0.2",
+    "@kynikos/react-helpers": "^1.0.4",
+    "connected-react-router": "^4.5.0",
     "history": "^4.7.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
-    "react-router-dom": "^4.2.2",
-    "react-router-redux": "^5.0.0-alpha.9",
-    "redux": "^3.7.2",
-    "redux-devtools-extension": "^2.13.2",
-    "redux-thunk": "^2.2.0"
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "coffeelint": "^2.1.0",
-    "coffeescript": "^2.2.3"
+    "coffeescript": "^2.3.2"
   },
   "babel": {
     "presets": [
