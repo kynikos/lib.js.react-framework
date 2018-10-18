@@ -100,6 +100,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       Switch: createFactory(Switch),
       Route: createFactory(Route),
       Redirect: createFactory(Redirect),
+      store: store,
       withRouter: withRouter,
       connect: connect,
       helpers: helpers,

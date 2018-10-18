@@ -64,6 +64,7 @@ module.exports = (rootReducerMap, {responsiveBreakpoints}) ->
         Switch: createFactory(Switch)
         Route: createFactory(Route)
         Redirect: createFactory(Redirect)
+        store
         withRouter
         connect
         helpers
