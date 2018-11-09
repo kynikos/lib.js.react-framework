@@ -29,13 +29,19 @@ catch
 # styled-jss
 
 
-module.exports = (rootReducerMap, {responsiveBreakpoints}) ->
+module.exports = (reducerMap, {responsiveBreakpoints}) ->
     history = createHistory()
 
     if responsiveStateReducer
-        rootReducerMap.browser = responsiveBreakpoints and
+        reducerMap.browser = responsiveBreakpoints and
             createResponsiveStateReducer(responsiveBreakpoints) or
             responsiveStateReducer
+
+    createRootReducer = (history) -> combineReducers({
+        reducerMap...
+        # This is expressly required to be called 'router'
+        router: connectRouter(history)
+    })
 
     storeEnhancers = []
     storeEnhancers.push(responsiveStoreEnhancer) if responsiveStoreEnhancer
@@ -45,7 +51,7 @@ module.exports = (rootReducerMap, {responsiveBreakpoints}) ->
     ))
 
     store = createStore(
-        connectRouter(history)(combineReducers(rootReducerMap))
+        createRootReducer(history)
         composeWithDevTools(storeEnhancers...)
     )
 
