@@ -6,7 +6,7 @@
 require('react')
 ReactDOM = require('react-dom')
 helpers = require('@kynikos/react-helpers')
-{createFactory, r} = helpers
+{createFactory, h} = helpers
 createHistory = require('history/createBrowserHistory').default
 {Switch, Route, Redirect, withRouter, Link} = require('react-router-dom')
 {createStore, combineReducers, applyMiddleware} = require('redux')
@@ -56,9 +56,9 @@ module.exports = (reducerMap, {responsiveBreakpoints}) ->
     )
 
     App = (root) ->
-        r(Provider
+        h(Provider
             {store}
-            r(ConnectedRouter
+            h(ConnectedRouter
                 {history}
                 root
             )

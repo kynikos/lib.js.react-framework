@@ -10,7 +10,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   // Copyright (C) 2018-present Dario Giovannetti <dev@dariogiovannetti.net>
   // Licensed under MIT
   // https://github.com/kynikos/react-framework/blob/master/LICENSE
-  var ConnectedRouter, Link, Provider, ReactDOM, Redirect, Route, Switch, applyMiddleware, combineReducers, composeWithDevTools, connect, connectRouter, createFactory, createHistory, createResponsiveStateReducer, createStore, go, goBack, goForward, helpers, push, r, replace, responsiveStateReducer, responsiveStoreEnhancer, routerMiddleware, thunk, withRouter;
+  var ConnectedRouter, Link, Provider, ReactDOM, Redirect, Route, Switch, applyMiddleware, combineReducers, composeWithDevTools, connect, connectRouter, createFactory, createHistory, createResponsiveStateReducer, createStore, go, goBack, goForward, h, helpers, push, replace, responsiveStateReducer, responsiveStoreEnhancer, routerMiddleware, thunk, withRouter;
 
   require('react');
 
@@ -20,7 +20,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   var _helpers = helpers;
   createFactory = _helpers.createFactory;
-  r = _helpers.r;
+  h = _helpers.h;
 
 
   createHistory = require('history/createBrowserHistory').default;
@@ -100,7 +100,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     storeEnhancers.push(applyMiddleware(thunk, routerMiddleware(history)));
     store = createStore(createRootReducer(history), composeWithDevTools.apply(undefined, _toConsumableArray(storeEnhancers)));
     App = function App(root) {
-      return r(Provider, { store: store }, r(ConnectedRouter, { history: history }, root));
+      return h(Provider, { store: store }, h(ConnectedRouter, { history: history }, root));
     };
     return {
       ReactDOM: ReactDOM,
