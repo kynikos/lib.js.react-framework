@@ -7,7 +7,7 @@ require('react')
 ReactDOM = require('react-dom')
 helpers = require('@kynikos/react-helpers')
 {createFactory, h} = helpers
-createHistory = require('history/createBrowserHistory').default
+createHistory = require('history').createBrowserHistory
 {Switch, Route, Redirect, withRouter, Link} = require('react-router-dom')
 {createStore, combineReducers, applyMiddleware} = require('redux')
 {Provider, connect} = require('react-redux')

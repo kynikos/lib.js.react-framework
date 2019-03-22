@@ -23,7 +23,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   h = _helpers.h;
 
 
-  createHistory = require('history/createBrowserHistory').default;
+  createHistory = require('history').createBrowserHistory;
 
   var _require = require('react-router-dom');
 
