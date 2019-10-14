@@ -11,37 +11,26 @@
   "keywords": [
     "react router redux framework"
   ],
-  "scripts": {
-    "compile": "./node_modules/.bin/coffee --compile --transpile index.coffee"
-  },
   "dependencies": {
-    "@kynikos/react-helpers": "^1.1.0",
-    "connected-react-router": "^5.0.1",
-    "history": "^4.9.0",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
-    "react-redux": "^5.1.1",
-    "react-router-dom": "^4.3.1",
-    "redux": "^4.0.1",
-    "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "coffeelint": "^2.1.0",
-    "coffeescript": "^2.3.2"
-  },
-  "babel": {
-    "presets": [
-      "env"
-    ],
-    "plugins": [
-      "transform-object-rest-spread"
-    ]
+    "@kynikos/react-helpers": " 1.x",
+    "@kynikos/redux-actions-mod": " 1.x",
+    "connected-react-router": "6.x",
+    "history": "4.x",
+    "react": "16.x",
+    "react-dom": "16.x",
+    "react-redux": "7.x",
+    "react-router": "5.x",
+    "react-router-dom": "5.x",
+    "redux": "4.x",
+    "redux-actions": "2.x",
+    "redux-thunk": "2.x"
   },
   "optionalDependencies": {
-    "redux-responsive": "^4.3.5"
+    "redux-devtools-extension": "^2.x",
+    "redux-responsive": "4.x"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1"
   }
 }
