@@ -3,7 +3,9 @@
 // Licensed under MIT
 // https://github.com/kynikos/react-framework/blob/master/LICENSE
 
-export {default} from './initReactFramework'
+export {
+  default,
+} from './initReactFramework'
 
 export {
   Component,
@@ -30,6 +32,7 @@ export {
   useLayoutEffect,
   useDebugValue,
 } from 'react'
+
 export {
   render,
   hydrate,
@@ -37,12 +40,14 @@ export {
   findDOMNode,
   createPortal,
 } from 'react-dom'
+
 export {
   useHistory,
   useLocation,
   useParams,
   useRouteMatch,
 } from 'react-router'
+
 export {
   BrowserRouter,
   HashRouter,
@@ -58,6 +63,7 @@ export {
   matchPath,
   withRouter,
 } from 'react-router-dom'
+
 export {
   go,
   goBack,
@@ -65,12 +71,15 @@ export {
   push,
   replace,
 } from 'connected-react-router'
+
 export {
   connect,
 } from 'react-redux'
+
 export {
   default as createElementExt,
 } from '@kynikos/react-helpers'
+
 export {
   createActionsWithMeta,
   combineActions,

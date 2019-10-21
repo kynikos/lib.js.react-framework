@@ -1,7 +1,7 @@
 import {createElement} from 'react'
 import {createBrowserHistory as createHistory} from 'history'
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
-import {Provider} from 'react-redux'
+import {Provider as ReactReduxProvider} from 'react-redux'
 import {ConnectedRouter, connectRouter, routerMiddleware}
   from 'connected-react-router'
 import ReduxThunk from 'redux-thunk'
@@ -33,9 +33,9 @@ export default function initReactFramework(
   const history = createHistory()
 
   if (responsiveStateReducer) {
-    reducerMap.browser = responsiveBreakpoints &&
-      createResponsiveStateReducer(responsiveBreakpoints) ||
-      responsiveStateReducer
+    reducerMap.browser = responsiveBreakpoints
+      ? createResponsiveStateReducer(responsiveBreakpoints)
+      : responsiveStateReducer
   }
 
   const createRootReducer = (history2) => combineReducers({
@@ -65,7 +65,7 @@ export default function initReactFramework(
   )
 
   const App = (root) => createElement(
-    Provider,
+    ReactReduxProvider,
     {store},
     createElement(
       ConnectedRouter,
