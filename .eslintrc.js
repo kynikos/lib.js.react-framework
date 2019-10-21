@@ -29,6 +29,7 @@ module.exports = {
     'function-call-argument-newline': ['error', 'consistent'],
     // 'function-paren-newline' disallows the h(Comp, ...) style
     'function-paren-newline': 'off',
+    'global-require': 'off',
     'guard-for-in': 'off',
     'id-length': 'off',
     'indent': ['error', 2],
