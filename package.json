@@ -26,6 +26,7 @@
     "redux-thunk": "2.x"
   },
   "optionalDependencies": {
+    "react-responsive": "4.x",
     "redux-devtools-extension": "^2.x",
     "redux-responsive": "4.x"
   },

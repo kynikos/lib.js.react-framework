@@ -76,6 +76,19 @@ export {
   connect,
 } from 'react-redux'
 
+let MediaQuery
+let useMediaQuery
+let ResponsiveContext
+try {
+  ({default: MediaQuery, useMediaQuery, Context: ResponsiveContext} =
+    require('react-responsive'))
+} catch (error) {
+  MediaQuery = null
+  useMediaQuery = null
+  ResponsiveContext = null
+}
+export {MediaQuery, useMediaQuery, ResponsiveContext}
+
 export {
   default as createElementExt,
 } from '@kynikos/react-helpers'
