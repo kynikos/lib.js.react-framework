@@ -6,6 +6,7 @@ module.exports = {
     'sourceType': 'module',
   },
   'env': {
+    'commonjs': true,
     'es6': true,
     'es2017': true,
   },

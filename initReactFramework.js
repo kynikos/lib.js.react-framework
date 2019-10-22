@@ -7,6 +7,7 @@ import {ConnectedRouter, connectRouter, routerMiddleware}
 import ReduxThunk from 'redux-thunk'
 let composeWithDevTools
 try {
+  // eslint-disable-next-line global-require
   ({composeWithDevTools} = require('redux-devtools-extension'))
 } catch (error) {
   composeWithDevTools = null
@@ -16,6 +17,7 @@ let responsiveStateReducer
 let responsiveStoreEnhancer
 try {
   ({createResponsiveStateReducer, responsiveStateReducer,
+    // eslint-disable-next-line global-require
     responsiveStoreEnhancer} = require('redux-responsive'))
 } catch (error) {
   createResponsiveStateReducer = null
