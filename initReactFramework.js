@@ -1,3 +1,8 @@
+// This file is part of react-framework
+// Copyright (C) 2018-present Dario Giovannetti <dev@dariogiovannetti.net>
+// Licensed under MIT
+// https://github.com/kynikos/react-framework/blob/master/LICENSE
+
 import {createElement} from 'react'
 import {createBrowserHistory as createHistory} from 'history'
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
@@ -55,8 +60,8 @@ export default function initReactFramework(
   storeEnhancers.push(
     applyMiddleware(
       ReduxThunk,
-      routerMiddleware(history)
-    )
+      routerMiddleware(history),
+    ),
   )
 
   const enhancer = (composeWithDevTools || compose)(...storeEnhancers)
@@ -72,8 +77,8 @@ export default function initReactFramework(
     createElement(
       ConnectedRouter,
       {history},
-      root
-    )
+      root,
+    ),
   )
 
   return {
