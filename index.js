@@ -91,7 +91,8 @@ try {
 export {MediaQuery, useMediaQuery, ResponsiveContext}
 
 export {
-  default as createElementExt,
+  createElement as createElementExt,
+  createFactory as createFactoryExt,
 } from '@kynikos/react-helpers'
 
 export {
