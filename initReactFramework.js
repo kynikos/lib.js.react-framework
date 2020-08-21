@@ -83,6 +83,9 @@ export default function initReactFramework(
 
   return {
     App,
+    // TODO[setup]: is it useful to expose 'history' or should I use
+    //    the react-router-redux push() etc.?
+    //    Also react-router-dom exposes 'history'
     history,
     store,
   }
