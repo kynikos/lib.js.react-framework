@@ -98,13 +98,11 @@ export {
   useLocation,
   useParams,
   useRouteMatch,
-} from 'react-router'
-
-export {
-  BrowserRouter,
-  HashRouter,
-  Link,
-  NavLink,
+  // BUG[upstream]: Export the following components from react-router, not from
+  //    react-router-dom, since at least with webpack@5.1.3, react@17.0.0,
+  //    react-dom@17.0.0, react-router@5.2.0 and react-router-dom@5.2.0
+  //    it wouldn't be exported properly *when*compressing*with*terser*
+  //    (it works fine when not compressing)
   Prompt,
   MemoryRouter,
   Redirect,
@@ -114,9 +112,36 @@ export {
   Switch,
   matchPath,
   withRouter,
+} from 'react-router'
+
+export {
+  BrowserRouter,
+  HashRouter,
+  Link,
+  NavLink,
+  // BUG[upstream]: Export the following components from react-router, not from
+  //    react-router-dom, since at least with webpack@5.1.3, react@17.0.0,
+  //    react-dom@17.0.0, react-router@5.2.0 and react-router-dom@5.2.0
+  //    it wouldn't be exported properly *when*compressing*with*terser*
+  //    (it works fine when not compressing)
+  // Prompt,
+  // MemoryRouter,
+  // Redirect,
+  // Route,
+  // Router,
+  // StaticRouter,
+  // Switch,
+  // matchPath,
+  // withRouter,
 } from 'react-router-dom'
 
 export {
+  // BUG[upstream]: Exporting these functions directly from
+  //    connected-react-router doesn't work anymore since at least with
+  //    webpack@5.1.3, react@17.0.0, react-dom@17.0.0, react-router@5.2.0 and
+  //    react-router-dom@5.2.0 *when*compressing*with*terser* (it works fine
+  //    when not compressing)
+  //    Use the 'history' methods as a workaround
   go,
   goBack,
   goForward,
