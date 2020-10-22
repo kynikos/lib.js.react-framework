@@ -12,8 +12,8 @@
     "react router redux framework"
   ],
   "dependencies": {
-    "@kynikos/react-helpers": "^2.0.1",
-    "@kynikos/redux-actions-mod": "^1.0.2",
+    "@kynikos/react-helpers": "^2.0.2",
+    "@kynikos/redux-actions-mod": "^1.0.3",
     "connected-react-router": "^6.8.0",
     "history": "4.x",
     "react": "^17.0.1",
