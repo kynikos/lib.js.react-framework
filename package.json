@@ -16,8 +16,8 @@
     "@kynikos/redux-actions-mod": "^1.0.2",
     "connected-react-router": "^6.8.0",
     "history": "4.x",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-redux": "^7.2.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
@@ -32,6 +32,6 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.7.0"
+    "eslint": "^7.11.0"
   }
 }
