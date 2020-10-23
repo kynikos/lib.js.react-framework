@@ -126,6 +126,10 @@ export {
 } from 'connected-react-router'
 
 export {
+  combineReducers,
+} from 'redux'
+
+export {
   connect,
 } from 'react-redux'
 
