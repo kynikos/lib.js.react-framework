@@ -1,9 +1,12 @@
+/* eslint quote-props: ["error", "always"] */
 module.exports = {
-  'parser': 'babel-eslint',
+  'parser': '@babel/eslint-parser',
   'extends': 'eslint:all',
   'parserOptions': {
-    'ecmaVersion': 2018,
     'sourceType': 'module',
+    'babelOptions': {
+      'configFile': './babel.config.js',
+    },
   },
   'env': {
     'commonjs': true,
@@ -21,8 +24,8 @@ module.exports = {
     // React doesn't like static render()
     'class-methods-use-this': 'off',
     'comma-dangle': ['error', 'always-multiline'],
-    'curly': ["error", "multi-line"],
-    'dot-location': ["error", "property"],
+    'curly': ['error', 'multi-line'],
+    'dot-location': ['error', 'property'],
     'eqeqeq': ['error', 'smart'],
     'func-names': 'off',
     'func-style': 'off',
@@ -67,7 +70,7 @@ module.exports = {
     'no-unused-expressions': ['error', {
       'allowShortCircuit': true,
       'allowTernary': true,
-      'allowTaggedTemplates': true
+      'allowTaggedTemplates': true,
     }],
     'no-unused-vars': 'warn',
     'no-use-before-define': 'warn',
