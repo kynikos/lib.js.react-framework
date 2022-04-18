@@ -12,6 +12,8 @@
 // react-break
 // react-responsive
 // react-breakpoints
+// swr
+// react-query
 // redux-saga
 // redux-observable
 // redux-persist
