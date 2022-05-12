@@ -12,7 +12,7 @@
     "react router redux framework"
   ],
   "dependencies": {
-    "@kynikos/react-helpers": "^3.0.1",
+    "@kynikos/react-helpers": "^4.0.1",
     "@kynikos/redux-actions-mod": "^1.0.3",
     "connected-react-router": "^6.8.0",
     "history": "^4.10.1",
@@ -26,12 +26,14 @@
     "redux-thunk": "^2.0.0"
   },
   "optionalDependencies": {
-    "react-responsive": "^4.0.0",
+    "react-responsive": "^9.0.0-beta.8",
     "redux-devtools-extension": "^2.0.0",
     "redux-responsive": "^4.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^8.12.0"
+    "@babel/core": "^7.17.10",
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/preset-env": "^7.17.10",
+    "eslint": "^8.13.0"
   }
 }
